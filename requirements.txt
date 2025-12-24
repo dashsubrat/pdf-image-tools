@@ -1,0 +1,16 @@
+# PDF Tools Web Application Dependencies
+
+# Web Framework
+Flask>=2.3.0
+
+# PDF Processing
+pypdf>=3.0.0
+
+# Image Processing (for Images to PDF conversion)
+Pillow>=10.0.0
+
+# Production WSGI Server
+gunicorn>=21.0.0
+
+# For Windows development (optional, gunicorn alternative)
+waitress>=2.1.0

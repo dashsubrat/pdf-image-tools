@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF & Image Tools - Free Online Utilities</title>
+    <meta name="description" content="Free online PDF and Image tools. Merge, split, compress, rotate PDFs and compress, resize, convert images. No registration, no watermarks.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+
+        <!-- ===================== -->
+        <!-- FIXED HERO SECTION    -->
+        <!-- ===================== -->
+        <section class="hero-section">
+            <h1>Free Online PDF & Image Tools</h1>
+            <p class="subtitle">All the tools you need to work with PDFs and images. 100% free, no registration required.</p>
+        </section>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Tools Selection (Home Page) -->
+            <div id="toolsHome" class="tools-home">
+
+                <!-- ===================== -->
+                <!-- HORIZONTAL TABS       -->
+                <!-- ===================== -->
+                <div class="tabs-container">
+                    <button class="tab-btn pdf-tab active" data-tab="pdf">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        PDF Tools
+                    </button>
+
+                    <button class="tab-btn image-tab" data-tab="image">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="2"/>
+                            <path d="M21 15L16 10L5 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Image Tools
+                        <span class="tab-badge">New</span>
+                    </button>
+                </div>
+
+                <!-- ===================== -->
+                <!-- PDF TOOLS PANEL       -->
+                <!-- ===================== -->
+                <div class="tab-panel active" id="pdf-panel">
+                    <div class="panel-header pdf">
+                        <h2>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            PDF Tools
+                        </h2>
+                        <p>Merge, split, compress, rotate and manipulate your PDF documents</p>
+                    </div>
+
+                    <div class="tools-grid">
+                        <!-- Merge PDF -->
+                        <div class="tool-card" data-tool="merge">
+                            <div class="tool-icon tool-icon-merge">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 6L21 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M8 12L21 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M8 18L21 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M3 6L3.01 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M3 12L3.01 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M3 18L3.01 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h3>Merge PDF</h3>
+                            <p>Combine multiple PDFs into one document</p>
+                        </div>
+
+                        <!-- Split PDF -->
+                        <div class="tool-card" data-tool="split">
+                            <div class="tool-icon tool-icon-split">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16 3H21V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 21H3V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M21 3L14 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M3 21L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3>Split PDF</h3>
+                            <p>Separate PDF into individual pages or chunks</p>
+                        </div>
+
+                        <!-- Compress PDF -->
+                        <div class="tool-card" data-tool="compress">
+                            <div class="tool-icon tool-icon-compress">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 3V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M17 8L12 3L7 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M17 16L12 21L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3>Compress PDF</h3>
+                            <p>Reduce PDF file size while maintaining quality</p>
+                        </div>
+
+                        <!-- Rotate PDF -->
+                        <div class="tool-card" data-tool="rotate">
+                            <div class="tool-icon tool-icon-rotate">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21 2V8H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M3 12C3 7.02944 7.02944 3 12 3C15.3756 3 18.3072 4.89383 19.8777 7.67568L21 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M3 22V16H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M21 12C21 16.9706 16.9706 21 12 21C8.62436 21 5.69279 19.1062 4.12228 16.3243L3 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3>Rotate PDF</h3>
+                            <p>Rotate PDF pages to any angle</p>
+                        </div>
+
+                        <!-- Extract Pages -->
+                        <div class="tool-card" data-tool="extract">
+                            <div class="tool-icon tool-icon-extract">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <line x1="9" y1="15" x2="15" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h3>Extract Pages</h3>
+                            <p>Extract specific pages from a PDF</p>
+                        </div>
+
+                        <!-- Images to PDF -->
+                        <div class="tool-card" data-tool="images-to-pdf">
+                            <div class="tool-icon tool-icon-images">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M21 15L16 10L5 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3>Images to PDF</h3>
+                            <p>Convert JPG, PNG images to PDF</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===================== -->
+                <!-- IMAGE TOOLS PANEL     -->
+                <!-- ===================== -->
+                <div class="tab-panel" id="image-panel">
+                    <div class="panel-header image">
+                        <h2>
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="2"/>
+                                <path d="M21 15L16 10L5 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Image Tools
+                        </h2>
+                        <p>Compress, resize, convert and edit your images with powerful tools</p>
+                    </div>
+
+                    <div class="tools-grid">
+                        <!-- Compress Image -->
+                        <div class="tool-card" data-tool="compress-image">
+                            <div class="tool-icon tool-icon-compress-img">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M8 12L12 8L16 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 16L12 20L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3>Compress Image</h3>
+                            <p>Reduce file size without losing quality</p>
+                        </div>
+
+                        <!-- Resize Image -->
+                        <div class="tool-card" data-tool="resize-image">
+                            <div class="tool-icon tool-icon-resize-img">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M9 21H3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M21 3L14 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M3 21L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3>Resize Image</h3>
+                            <p>Change image dimensions to any size</p>
+                        </div>
+
+                        <!-- Convert Image -->
+                        <div class="tool-card" data-tool="convert-image">
+                            <div class="tool-icon tool-icon-convert-img">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17 1L21 5L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M3 11V9C3 7.93913 3.42143 6.92172 4.17157 6.17157C4.92172 5.42143 5.93913 5 7 5H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M7 23L3 19L7 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M21 13V15C21 16.0609 20.5786 17.0783 19.8284 17.8284C19.0783 18.5786 18.0609 19 17 19H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3>Convert Image</h3>
+                            <p>Convert between JPG, PNG, WebP formats</p>
+                        </div>
+
+                        <!-- Crop Image -->
+                        <div class="tool-card" data-tool="crop-image">
+                            <div class="tool-icon tool-icon-crop-img">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.13 1L6 16C6 16.5304 6.21071 17.0391 6.58579 17.4142C6.96086 17.7893 7.46957 18 8 18H23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M1 6.13L16 6C16.5304 6 17.0391 6.21071 17.4142 6.58579C17.7893 6.96086 18 7.46957 18 8V23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3>Crop Image</h3>
+                            <p>Crop to remove unwanted areas</p>
+                        </div>
+
+                        <!-- Add Watermark -->
+                        <div class="tool-card" data-tool="watermark-image">
+                            <div class="tool-icon tool-icon-watermark">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M7 15L10 9L13 13L15 11L17 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="8" cy="8" r="1.5" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <h3>Add Watermark</h3>
+                            <p>Add text or image watermarks</p>
+                        </div>
+
+                        <!-- Rotate Image -->
+                        <div class="tool-card" data-tool="rotate-image">
+                            <div class="tool-icon tool-icon-rotate-img">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M23 4V10H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M1 20V14H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M3.51 9C4.01717 7.56678 4.87913 6.2854 6.01547 5.27542C7.15182 4.26543 8.52547 3.55976 10.0083 3.22426C11.4911 2.88875 13.0348 2.93434 14.4952 3.35677C15.9556 3.77921 17.2853 4.56471 18.36 5.64L23 10M1 14L5.64 18.36C6.71475 19.4353 8.04437 20.2208 9.50481 20.6432C10.9652 21.0657 12.5089 21.1112 13.9917 20.7757C15.4745 20.4402 16.8482 19.7346 17.9845 18.7246C19.1209 17.7146 19.9828 16.4332 20.49 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <h3>Rotate Image</h3>
+                            <p>Rotate and flip images to any angle</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tool Workspace -->
+            <div id="toolWorkspace" class="tool-workspace" style="display: none;">
+                <!-- Tool Header -->
+                <div class="tool-header">
+                    <button class="back-btn" id="backBtn">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 12H5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 19L5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        All Tools
+                    </button>
+                    <h2 id="toolTitle">Tool Name</h2>
+                </div>
+
+                <!-- Upload Area -->
+                <div class="upload-section" id="uploadSection">
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="17,8 12,3 7,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="12" y1="3" x2="12" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 id="uploadTitle">Drag & drop files here</h3>
+                        <p>or</p>
+                        <label class="browse-btn">
+                            Browse Files
+                            <input type="file" id="fileInput" accept=".pdf" multiple hidden>
+                        </label>
+                        <p class="upload-hint" id="uploadHint">Maximum 100MB total</p>
+                    </div>
+                </div>
+
+                <!-- Files Section -->
+                <div class="files-section" id="filesSection" style="display: none;">
+                    <div class="files-header">
+                        <h3>Selected Files</h3>
+                        <span class="file-count" id="fileCount">0 files</span>
+                    </div>
+                    <p class="drag-hint" id="dragHint">Drag files to reorder them</p>
+                    <ul class="file-list" id="fileList"></ul>
+
+                    <!-- Image Preview Section -->
+                    <div class="image-preview-section" id="imagePreviewSection" style="display: none;">
+                        <h4>Preview</h4>
+                        <div class="image-preview-container" id="imagePreviewContainer">
+                            <img id="previewImage" src="" alt="Preview">
+                            <!-- Crop overlay -->
+                            <div class="crop-overlay" id="cropOverlay" style="display: none;">
+                                <div class="crop-box" id="cropBox">
+                                    <div class="crop-handle crop-handle-nw" data-handle="nw"></div>
+                                    <div class="crop-handle crop-handle-ne" data-handle="ne"></div>
+                                    <div class="crop-handle crop-handle-sw" data-handle="sw"></div>
+                                    <div class="crop-handle crop-handle-se" data-handle="se"></div>
+                                    <div class="crop-handle crop-handle-n" data-handle="n"></div>
+                                    <div class="crop-handle crop-handle-s" data-handle="s"></div>
+                                    <div class="crop-handle crop-handle-e" data-handle="e"></div>
+                                    <div class="crop-handle crop-handle-w" data-handle="w"></div>
+                                    <div class="crop-info" id="cropInfo">0 × 0</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="image-info" id="imageInfo">
+                            <span class="image-dimensions" id="imageDimensions"></span>
+                            <span class="image-size" id="imageSize"></span>
+                        </div>
+                    </div>
+
+                    <!-- Tool-specific Options -->
+                    <div class="tool-options" id="toolOptions"></div>
+
+                    <div class="actions">
+                        <button class="btn btn-secondary" id="addMoreBtn">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Add More Files
+                            <input type="file" id="addMoreInput" accept=".pdf" multiple hidden>
+                        </button>
+                        <button class="btn btn-danger" id="clearAllBtn">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <polyline points="3,6 5,6 21,6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Clear All
+                        </button>
+                    </div>
+                    <button class="btn btn-primary action-btn" id="actionBtn" disabled>
+                        Process
+                    </button>
+                </div>
+
+                <!-- Progress Section -->
+                <div class="progress-section" id="progressSection" style="display: none;">
+                    <div class="progress-content">
+                        <div class="spinner"></div>
+                        <h3 id="progressTitle">Processing...</h3>
+                        <p>This may take a few moments</p>
+                    </div>
+                </div>
+
+                <!-- Success Section -->
+                <div class="success-section" id="successSection" style="display: none;">
+                    <div class="success-content">
+                        <div class="success-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="22,4 12,14.01 9,11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 id="successTitle">Success!</h3>
+                        <div class="result-stats" id="resultStats"></div>
+                        <button class="btn btn-primary download-btn" id="downloadBtn">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 15V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="7,10 12,15 17,10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Download
+                        </button>
+                        <button class="btn btn-secondary" id="processAnotherBtn">Process Another</button>
+                    </div>
+                </div>
+
+                <!-- Error Section -->
+                <div class="error-section" id="errorSection" style="display: none;">
+                    <div class="error-content">
+                        <div class="error-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Something went wrong</h3>
+                        <p class="error-message" id="errorMessage"></p>
+                        <button class="btn btn-primary" id="tryAgainBtn">Try Again</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Features Section -->
+        <section class="features" id="featuresSection">
+            <h2>Why Use Our Tools?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Fast & Easy</h3>
+                    <p>Process your files in seconds with our intuitive drag-and-drop interface.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>100% Secure</h3>
+                    <p>Your files are processed securely and deleted immediately after download.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="12" y1="1" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M17 5H9.5C8.57174 5 7.6815 5.36875 7.02513 6.02513C6.36875 6.6815 6 7.57174 6 8.5C6 9.42826 6.36875 10.3185 7.02513 10.9749C7.6815 11.6313 8.57174 12 9.5 12H14.5C15.4283 12 16.3185 12.3687 16.9749 13.0251C17.6313 13.6815 18 14.5717 18 15.5C18 16.4283 17.6313 17.3185 16.9749 17.9749C16.3185 18.6313 15.4283 19 14.5 19H6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>100% Free</h3>
+                    <p>No registration, no hidden fees, no watermarks. Completely free to use.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Works Everywhere</h3>
+                    <p>Use on any device with a web browser. No software installation needed.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 PDF & Image Tools. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

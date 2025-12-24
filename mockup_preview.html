@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF & Image Tools - Horizontal Tabs Mockup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #4f46e5;
+            --primary-hover: #4338ca;
+            --primary-light: #eef2ff;
+            --secondary-color: #64748b;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --border-radius: 12px;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+            /* Tab colors */
+            --pdf-color: #ef4444;
+            --pdf-bg: #fef2f2;
+            --image-color: #3b82f6;
+            --image-bg: #eff6ff;
+
+            /* PDF Tool colors */
+            --merge-color: #4f46e5;
+            --split-color: #ec4899;
+            --compress-color: #10b981;
+            --rotate-color: #f59e0b;
+            --extract-color: #8b5cf6;
+            --images-color: #06b6d4;
+
+            /* Image Tool colors */
+            --compress-img-color: #f97316;
+            --resize-img-color: #14b8a6;
+            --convert-img-color: #a855f7;
+            --crop-img-color: #ef4444;
+            --watermark-color: #6366f1;
+            --rotate-img-color: #0ea5e9;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Mockup Notice */
+        .mockup-notice {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===================== */
+        /* FIXED HERO SECTION    */
+        /* ===================== */
+        .hero-section {
+            background: var(--surface);
+            padding: 40px 0 32px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-section h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .hero-section .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===================== */
+        /* HORIZONTAL TABS       */
+        /* ===================== */
+        .tabs-section {
+            background: var(--surface);
+            padding: 0 0 24px;
+        }
+
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 20px 0;
+        }
+
+        .tab-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border: 2px solid var(--border-color);
+            background: var(--surface);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        .tab-btn svg {
+            width: 22px;
+            height: 22px;
+            transition: var(--transition);
+        }
+
+        .tab-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* PDF Tab Active */
+        .tab-btn.pdf-tab.active {
+            background: var(--pdf-bg);
+            border-color: var(--pdf-color);
+            color: var(--pdf-color);
+        }
+
+        /* Image Tab Active */
+        .tab-btn.image-tab.active {
+            background: var(--image-bg);
+            border-color: var(--image-color);
+            color: var(--image-color);
+        }
+
+        /* Badge */
+        .tab-badge {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 3px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===================== */
+        /* TOOLS PANELS          */
+        /* ===================== */
+        .tools-section {
+            padding: 32px 0 48px;
+            min-height: 400px;
+        }
+
+        .tab-panel {
+            display: none;
+            animation: fadeSlideIn 0.4s ease;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Panel Header */
+        .panel-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .panel-header h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .panel-header h2 svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .panel-header.pdf h2 svg {
+            color: var(--pdf-color);
+        }
+
+        .panel-header.image h2 svg {
+            color: var(--image-color);
+        }
+
+        .panel-header p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .tool-card {
+            background: var(--surface);
+            border-radius: var(--border-radius);
+            padding: 28px 24px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .tool-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+        }
+
+        .tool-card:hover .tool-icon {
+            transform: scale(1.1);
+        }
+
+        .tool-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            transition: var(--transition);
+        }
+
+        .tool-icon svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        /* PDF Tool Icon Styles */
+        .tool-icon-merge { background: #eef2ff; color: var(--merge-color); }
+        .tool-icon-split { background: #fdf2f8; color: var(--split-color); }
+        .tool-icon-compress { background: #ecfdf5; color: var(--compress-color); }
+        .tool-icon-rotate { background: #fffbeb; color: var(--rotate-color); }
+        .tool-icon-extract { background: #f5f3ff; color: var(--extract-color); }
+        .tool-icon-images { background: #ecfeff; color: var(--images-color); }
+
+        /* Image Tool Icon Styles */
+        .tool-icon-compress-img { background: #fff7ed; color: var(--compress-img-color); }
+        .tool-icon-resize-img { background: #f0fdfa; color: var(--resize-img-color); }
+        .tool-icon-convert-img { background: #faf5ff; color: var(--convert-img-color); }
+        .tool-icon-crop-img { background: #fef2f2; color: var(--crop-img-color); }
+        .tool-icon-watermark { background: #eef2ff; color: var(--watermark-color); }
+        .tool-icon-rotate-img { background: #f0f9ff; color: var(--rotate-img-color); }
+
+        .tool-card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+
+        .tool-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ===================== */
+        /* FIXED FEATURES SECTION */
+        /* ===================== */
+        .features-section {
+            background: var(--surface);
+            padding: 48px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .features-section h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+            color: var(--text-primary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: var(--background);
+            border-radius: var(--border-radius);
+            padding: 24px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-icon {
+            width: 52px;
+            height: 52px;
+            background: var(--primary-light);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .feature-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ===================== */
+        /* FOOTER                */
+        /* ===================== */
+        .footer {
+            padding: 24px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            background: var(--surface);
+        }
+
+        .footer p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* ===================== */
+        /* RESPONSIVE            */
+        /* ===================== */
+        @media (max-width: 640px) {
+            .hero-section h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero-section .subtitle {
+                font-size: 1rem;
+            }
+
+            .tabs-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-btn {
+                width: 200px;
+                justify-content: center;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Mockup Notice Banner -->
+    <div class="mockup-notice">
+        🎨 <strong>MOCKUP PREVIEW</strong> - Fixed Header + Horizontal Tabs + Fixed Features Section
+    </div>
+
+    <!-- ===================== -->
+    <!-- FIXED HERO SECTION    -->
+    <!-- ===================== -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Free Online PDF & Image Tools</h1>
+            <p class="subtitle">All the tools you need to work with PDFs and images. 100% free, no registration required.</p>
+        </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- HORIZONTAL TABS       -->
+    <!-- ===================== -->
+    <section class="tabs-section">
+        <div class="container">
+            <div class="tabs-container">
+                <button class="tab-btn pdf-tab active" data-tab="pdf">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    PDF Tools
+                </button>
+
+                <button class="tab-btn image-tab" data-tab="image">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="2"/>
+                        <path d="M21 15L16 10L5 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Image Tools
+                    <span class="tab-badge">New</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- TOOLS PANELS          -->
+    <!-- ===================== -->
+    <section class="tools-section">
+        <div class="container">
+            <!-- PDF Tools Panel -->
+            <div class="tab-panel active" id="pdf-panel">
+                <div class="panel-header pdf">
+                    <h2>
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        PDF Tools
+                    </h2>
+                    <p>Merge, split, compress, rotate and manipulate your PDF documents</p>
+                </div>
+
+                <div class="tools-grid">
+                    <!-- Merge PDF -->
+                    <div class="tool-card">
+                        <div class="tool-icon tool-icon-merge">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 6L21 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M8 12L21 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M8 18L21 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M3 6L3.01 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M3 12L3.01 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M3 18L3.01 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Merge PDF</h3>
+                        <p>Combine multiple PDFs into one document</p>
+                    </div>
+
+                    <!-- Split PDF -->
+                    <div class="tool-card">
+                        <div class="tool-icon tool-icon-split">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 3H21V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 21H3V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21 3L14 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3 21L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Split PDF</h3>
+                        <p>Separate PDF into individual pages</p>
+                    </div>
+
+                    <!-- Compress PDF -->
+                    <div class="tool-card">
+                        <div class="tool-icon tool-icon-compress">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 3V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M17 8L12 3L7 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M17 16L12 21L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Compress PDF</h3>
+                        <p>Reduce PDF file size</p>
+                    </div>
+
+                    <!-- Rotate PDF -->
+                    <div class="tool-card">
+                        <div class="tool-icon tool-icon-rotate">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 2V8H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3 12C3 7.02944 7.02944 3 12 3C15.3756 3 18.3072 4.89383 19.8777 7.67568L21 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3 22V16H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21 12C21 16.9706 16.9706 21 12 21C8.62436 21 5.69279 19.1062 4.12228 16.3243L3 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Rotate PDF</h3>
+                        <p>Rotate PDF pages to any angle</p>
+                    </div>
+
+                    <!-- Extract Pages -->
+                    <div class="tool-card">
+                        <div class="tool-icon tool-icon-extract">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="9" y1="15" x2="15" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <h3>Extract Pages</h3>
+                        <p>Extract specific pages from PDF</p>
+                    </div>
+
+                    <!-- Images to PDF -->
+                    <div class="tool-card">
+                        <div class="tool-icon tool-icon-images">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="2"/>
+                                <path d="M21 15L16 10L5 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Images to PDF</h3>
+                        <p>Convert images to PDF format</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Tools Panel -->
+            <div class="tab-panel" id="image-panel">
+                <div class="panel-header image">
+                    <h2>
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="2"/>
+                            <path d="M21 15L16 10L5 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Image Tools
+                    </h2>
+                    <p>Compress, resize, convert and edit your images with powerful tools</p>
+                </div>
+
+                <div class="tools-grid">
+                    <!-- Compress Image -->
+                    <div class="tool-card">
+                        <div class="tool-icon tool-icon-compress-img">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M8 12L12 8L16 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8 16L12 20L16 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Compress Image</h3>
+                        <p>Reduce file size without losing quality</p>
+                    </div>
+
+                    <!-- Resize Image -->
+                    <div class="tool-card">
+                        <div class="tool-icon tool-icon-resize-img">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 3H21V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9 21H3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21 3L14 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3 21L10 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Resize Image</h3>
+                        <p>Change image dimensions to any size</p>
+                    </div>
+
+                    <!-- Convert Image -->
+                    <div class="tool-card">
+                        <div class="tool-icon tool-icon-convert-img">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17 1L21 5L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3 11V9C3 7.93913 3.42143 6.92172 4.17157 6.17157C4.92172 5.42143 5.93913 5 7 5H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7 23L3 19L7 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M21 13V15C21 16.0609 20.5786 17.0783 19.8284 17.8284C19.0783 18.5786 18.0609 19 17 19H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Convert Image</h3>
+                        <p>Convert between JPG, PNG, WebP formats</p>
+                    </div>
+
+                    <!-- Crop Image -->
+                    <div class="tool-card">
+                        <div class="tool-icon tool-icon-crop-img">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.13 1L6 16C6 16.5304 6.21071 17.0391 6.58579 17.4142C6.96086 17.7893 7.46957 18 8 18H23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M1 6.13L16 6C16.5304 6 17.0391 6.21071 17.4142 6.58579C17.7893 6.96086 18 7.46957 18 8V23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Crop Image</h3>
+                        <p>Crop to remove unwanted areas</p>
+                    </div>
+
+                    <!-- Add Watermark -->
+                    <div class="tool-card">
+                        <div class="tool-icon tool-icon-watermark">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M7 15L10 9L13 13L15 11L17 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="8" cy="8" r="1.5" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h3>Add Watermark</h3>
+                        <p>Add text or image watermarks</p>
+                    </div>
+
+                    <!-- Rotate Image -->
+                    <div class="tool-card">
+                        <div class="tool-icon tool-icon-rotate-img">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23 4V10H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M1 20V14H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M3.51 9C4.01717 7.56678 4.87913 6.2854 6.01547 5.27542C7.15182 4.26543 8.52547 3.55976 10.0083 3.22426C11.4911 2.88875 13.0348 2.93434 14.4952 3.35677C15.9556 3.77921 17.2853 4.56471 18.36 5.64L23 10M1 14L5.64 18.36C6.71475 19.4353 8.04437 20.2208 9.50481 20.6432C10.9652 21.0657 12.5089 21.1112 13.9917 20.7757C15.4745 20.4402 16.8482 19.7346 17.9845 18.7246C19.1209 17.7146 19.9828 16.4332 20.49 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Rotate Image</h3>
+                        <p>Rotate and flip images to any angle</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- FIXED FEATURES SECTION -->
+    <!-- ===================== -->
+    <section class="features-section">
+        <div class="container">
+            <h2>Why Use Our Tools?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Fast & Easy</h3>
+                    <p>Process your files in seconds with our intuitive drag-and-drop interface.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M7 11V7C7 4.23858 9.23858 2 12 2C14.7614 2 17 4.23858 17 7V11" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>100% Secure</h3>
+                    <p>Your files are processed securely and deleted immediately after download.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="12" y1="1" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M17 5H9.5C8.57174 5 7.6815 5.36875 7.02513 6.02513C6.36875 6.6815 6 7.57174 6 8.5C6 9.42826 6.36875 10.3185 7.02513 10.9749C7.6815 11.6313 8.57174 12 9.5 12H14.5C15.4283 12 16.3185 12.3687 16.9749 13.0251C17.6313 13.6815 18 14.5717 18 15.5C18 16.4283 17.6313 17.3185 16.9749 17.9749C16.3185 18.6313 15.4283 19 14.5 19H6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>100% Free</h3>
+                    <p>No registration, no hidden fees, no watermarks. Completely free to use.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="2" y="3" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Works Everywhere</h3>
+                    <p>Use on any device with a web browser. No software installation needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== -->
+    <!-- FOOTER                -->
+    <!-- ===================== -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 PDF & Image Tools. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Switching Logic
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetTab = button.dataset.tab;
+
+                // Update button states
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Update panel states
+                tabPanels.forEach(panel => {
+                    if (panel.id === `${targetTab}-panel`) {
+                        panel.classList.add('active');
+                    } else {
+                        panel.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Tool card click handler (for demo)
+        document.querySelectorAll('.tool-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const toolName = card.querySelector('h3').textContent;
+                alert(`Opening: ${toolName}\n\n(This is a mockup preview)`);
+            });
+        });
+    </script>
+</body>
+</html>
